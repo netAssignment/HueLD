@@ -2,10 +2,13 @@
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>@ViewBag.Title</title>
+    @Scripts.Render("~/bundles/jquery")
     @Styles.Render("~/Content/HomeStyle.css")
-    
 </head>
 <body>
     <div id="bodyDiv">
@@ -14,8 +17,16 @@
             <ul>
                 <li>@Html.ActionLink("Home", "Index", "MyHome")</li>
                 <li>@Html.ActionLink("About", "About", "MyHome")</li>
+                <li>@if (User.Identity.IsAuthenticated)
+                    {
+                        if (User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                        {
+                    @Html.ActionLink("Manager", "Index", "Manager")
+                        }
+                    }
+                </li>
             </ul>
-            <div style="float:right;color:white;">@Html.Partial("~/Views/Shared/_LoginPartial.cshtml")</div>
+            <div style="float: right; color: white;">@Html.Partial("~/Views/Shared/_LoginPartial.cshtml")</div>
         </div>
         <div id="mainContainDiv">
             <div id="colLeftDiv">
@@ -35,36 +46,30 @@
                 <div class="boxLeftDiv">
                     <div class="titleBoxDiv">Categories</div>
                     <div id="categoryList">
-                        <ul>
-                            <li>@Html.ActionLink("All","Index","MyHome")</li>
-                            <li>@Html.ActionLink("Children books","ChildrenBooks","Categories")</li>
-                            <li>@Html.ActionLink("Business books books","BusinessBooks","Categories")</li>
-                            <li>@Html.ActionLink("Literature books","LiteratureBooks","Categories")</li>
-                            <li>@Html.ActionLink("Music books","MusicBooks","Categories")</li>
-                            <li>@Html.ActionLink("Technology books","TechnologyBooks","Categories")</li>                           
-                        </ul>
-                    </div>               
+                        @{Html.RenderAction("_LoadCategoryPartial", "Categories");}
+                    </div>
                 </div>
             </div>
             <div id="colRightDiv">
                 <div class="boxLeftDiv boxRightDiv">
-                  @RenderBody()
+                    @RenderBody()
                     <div id="pageContent"></div>
                 </div>
             </div>
         </div>
 
         <div id="footer">
-          <hr />
-            <div id="itemFooter">Designer:  Luân Đức Huê<br />
-            Source:  <a href="https://bookmanager.com/tbm/" 
-                        target="_blank">https://bookmanager.com/tbm/</a>
+            <hr />
+            <div id="itemFooter">
+                Designer:  Luân Đức Huê<br />
+                Source:  <a href="https://bookmanager.com/tbm/"
+                    target="_blank">https://bookmanager.com/tbm/</a>
             </div>
         </div>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    <script src="~/Scripts/ajaxLoadPage.js"></script>
-    <script type="text/javascript">
+    
+
+    @*<script type="text/javascript">
         $(document).ready(function () {
             $('#submit').click(function () {
                 var username = $('#user').val();
@@ -88,8 +93,7 @@
                 }
             });
         });
-
-</script>
+    </script>*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

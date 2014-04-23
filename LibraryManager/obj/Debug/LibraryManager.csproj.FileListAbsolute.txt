@@ -117,7 +117,6 @@ D:\FPT\ProjectAdvanceTech\LibraryManager\LibraryManager\bin\System.Web.Razor.dll
 D:\FPT\ProjectAdvanceTech\LibraryManager\LibraryManager\bin\System.Web.WebPages.Deployment.dll
 D:\FPT\ProjectAdvanceTech\LibraryManager\LibraryManager\bin\System.Web.WebPages.dll
 D:\FPT\ProjectAdvanceTech\LibraryManager\LibraryManager\bin\System.Web.WebPages.Razor.dll
-D:\FPT\ProjectAdvanceTech\LibraryManager\LibraryManager\bin\Trirand.Web.Mvc.dll
 D:\FPT\ProjectAdvanceTech\LibraryManager\LibraryManager\bin\WebGrease.dll
 D:\FPT\ProjectAdvanceTech\LibraryManager\LibraryManager\bin\WebMatrix.Data.dll
 D:\FPT\ProjectAdvanceTech\LibraryManager\LibraryManager\bin\WebMatrix.WebData.dll

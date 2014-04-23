@@ -1,0 +1,79 @@
+﻿@model LibraryManager.Models.Book
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MyLayout1.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Book</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BookName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BookName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Price)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Price)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Categories.CategoriesName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Categories.CategoriesName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Decription)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Decription)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DateUpdate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DateUpdate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PageNumber)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PageNumber)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PictureName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PictureName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberOfViews)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberOfViews)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsDelete)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsDelete)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BookId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -35,6 +35,7 @@ namespace LibraryManager.Models
         [Key]
         public int CategoriesId { get; set; }
         public string CategoriesName { get; set; }
+        public bool IsDelete { get; set; }
         public virtual ICollection<Book> Books { get; set; }
     }
     public class TakePartIn
@@ -61,6 +62,7 @@ namespace LibraryManager.Models
         [StringLength(20)]
         public string PhoneNumber { get; set; }
         public string Biography { get; set; }
+        public bool IsDelete { get; set; }
 
         public ICollection<TakePartIn> TakePartIns { get; set; }//Thuộc tính kiểu thể loại
     }
@@ -80,6 +82,7 @@ namespace LibraryManager.Models
         public DateTime? DateOfBirth { get; set; }
         public bool IsMale { get; set; }
         public string Email { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual ICollection<BorrowerBooks> BorrowerBooks { get; set; }
         public virtual Role Role { get; set; }
@@ -94,6 +97,7 @@ namespace LibraryManager.Models
         [Key, Column(Order = 2)]
         public DateTime DateBorrow { get; set; }
         public DateTime? DateReturn { get; set; }
+        public bool IsDelete { get; set; }
 
         public virtual Book Books { get; set; }
         public virtual Borrower Borrower { get; set; }

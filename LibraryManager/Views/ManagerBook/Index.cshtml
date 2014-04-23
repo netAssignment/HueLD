@@ -1,0 +1,95 @@
+﻿@model IEnumerable<LibraryManager.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout1.cshtml";
+    string a = "";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Categories.CategoriesName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Decription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateUpdate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PageNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberOfViews)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsDelete)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Categories.CategoriesName)
+        </td>
+        
+        @{
+            a=item.Decription;
+            if (item.Decription.Length > 80)
+            { a = item.Decription.Substring(0, 80)+" ..."; }
+            <td>@a</td>
+        }
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.DateUpdate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PageNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PictureName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberOfViews)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsDelete)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BookId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BookId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BookId })
+        </td>
+    </tr>
+}
+
+</table>
+@section scripts{
+    <script>
+        $('#Decription').keypress(function () {
+            return this.value.length < 55
+        })
+    </script>
+}

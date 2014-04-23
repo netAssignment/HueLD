@@ -33,6 +33,8 @@ namespace LibraryManager.Controllers
             {
                 Category c = new Category();
                 c.CategoriesName = CategoriesName;
+
+
                 db.Categories.Add(c);
                 //db.SaveChanges();
                 return PartialView("~/Views/Partial/_SaveCategories.cshtml", db.Categories.ToList());

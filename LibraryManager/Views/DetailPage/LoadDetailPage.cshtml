@@ -1,0 +1,92 @@
+﻿@using LibraryManager.ViewModel
+@model LibraryManager.Models.Book
+
+@{
+    ViewBag.Title = "LoadDetailPage";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<header>
+  <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+</header>
+
+<div class="bookItemBox noBGColor">
+    <p class="bookTitle">@Model.BookName</p>
+    <div>
+        <img src="/Images/@Model.PictureName" alt="image @Model.PictureName" class="bookItemPicture"/>
+    </div>
+    <div>
+        @Model.Decription
+    </div>
+</div>
+
+<!--Horizontal Tab-->
+    <div id="horizontalTab">
+        <ul>
+            <li><a href="#tab-1">Responsive Tab-1</a></li>
+            <li><a href="#tab-2">Comment</a></li>
+        </ul>
+        
+        <div id="tab-1" style="text-align:justify">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce eu scelerisque eros. Fusce ante orci, hendrerit sit amet metus sit amet, venenatis sodales felis. Morbi vel mi in leo dignissim convallis in a neque. Suspendisse sollicitudin nibh non dapibus condimentum. Etiam sit amet arcu ultricies, porttitor justo eget, scelerisque urna. Praesent non ligula nec ligula euismod condimentum eget sed augue. Ut feugiat, turpis id sollicitudin vestibulum, tellus massa adipiscing nisl, quis cursus nisl arcu vel ipsum.</p>
+        </div>
+        <div id="tab-2" style="text-align:left">
+           @using (Html.BeginForm("LoadDetailPage", "DetailPage", new { bookID=Model.BookId }, FormMethod.Post, new { @class = "ajax" }))
+           {   
+            @Html.AntiForgeryToken()
+            <div id="update">
+                @Html.Partial("~/Views/Partial/_PartialViewComment.cshtml", ViewBag.sss as Model)
+            </div>
+            <p>
+                <input type="submit" value="Send"/>
+            </p>
+           }
+        </div>
+
+    </div>
+        
+ @section scripts{
+    
+    <link href="~/Content/TabStyle/SanPhamStyle.css" rel="stylesheet" />
+    <link href="~/Content/TabStyle/style.css" rel="stylesheet" />
+    <link href="~/Content/TabStyle/responsive-tabs.css" rel="stylesheet" />
+    <!--<![endif]-->
+    <script src="~/Scripts/JquerryTab/jquery-2.1.0.min.js"></script>
+    <!-- Responsive Tabs JS -->
+    <script src="~/Scripts/JquerryTab/jquery.responsiveTabs.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').responsiveTabs({
+                rotate: false,
+                startCollapsed: 'accordion',
+                collapsible: 'accordion',
+                setHash: true,
+                disabled: [3, 4]
+            });
+
+            $('#start-rotation').on('click', function () {
+                $('#horizontalTab').responsiveTabs('active');
+            });
+            $('#stop-rotation').on('click', function () {
+                $('#horizontalTab').responsiveTabs('stopRotation');
+            });
+            $('#start-rotation').on('click', function () {
+                $('#horizontalTab').responsiveTabs('active');
+            });
+            $('.select-tab').on('click', function () {
+                $('#horizontalTab').responsiveTabs('activate', $(this).val());
+            });
+
+        });
+    </script>
+    <script>
+        $(function () {
+
+            $("form.ajax").submit(function () {
+                $.post($(this).attr("action"), $(this).serialize(), function (response) {
+                    $("#update").html(response);
+                });
+                return false;
+            });
+        });
+    </script>
+}

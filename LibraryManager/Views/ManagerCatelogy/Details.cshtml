@@ -1,0 +1,23 @@
+﻿@model LibraryManager.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<link href="~/Content/HomeStyle.css" rel="stylesheet" />
+<link href="~/Content/ManagerStyle.css" rel="stylesheet" />
+<fieldset>
+    <legend>Category</legend>
+
+    <div class="display-label Heading">
+         @Html.DisplayNameFor(model => model.CategoriesName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CategoriesName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit",null, new { id=Model.CategoriesId ,@class="myHyperlink"}) |
+    @Html.ActionLink("Back to List", "Index", null, new { @class="myHyperlink"})
+</p>

@@ -1,0 +1,9 @@
+﻿@model List<LibraryManager.Models.Category>
+<ul>
+    @foreach(var item in Model)
+    { 
+      <li>@Html.ActionLink(@item.CategoriesName, "CategoryLink", "Categories",
+                      new {id=item.CategoriesId },null)
+      </li>
+    }
+</ul>

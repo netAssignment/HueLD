@@ -1,0 +1,24 @@
+﻿@using LibraryManager.Models
+@model List<Book>
+@{
+    ViewBag.Title = ViewBag.TitleCategories;
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+    List<Author> listAuthor = ViewBag.listAuthor as List<Author>;
+}
+
+<div class="titleCategorySelected">
+   @ViewBag.TitleCategories
+</div>
+@foreach(var item in Model)
+{
+<div class="bookItemBox">
+    <p>@Html.ActionLink(item.BookName, "LoadDetailPage", "DetailPage", new {bookId=item.BookId }, new { @class = "bookTitle" })</p>
+    <p class="bookContent">
+       @item.Decription
+    </p>
+    <div class="alignRight">
+        @Html.Action("GetAuthorByBookID", new { bookID = item.BookId })                                      
+    </div>
+    <div class="alignRight"><span>Date publish:</span> @item.DateUpdate</div>
+</div>
+}

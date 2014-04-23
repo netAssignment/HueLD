@@ -13,8 +13,8 @@ namespace LibraryManager.Controllers
         // GET: /Home/
         BookContext db=new BookContext();
         public ActionResult Index()
-        {         
-            return View();
+        {
+            return View(db.Books.Where(p => p.IsDelete == false).OrderByDescending(date => date.DateUpdate).ToList());
         }
         public ViewResult About()
         {

@@ -1,0 +1,198 @@
+﻿/*SanPhamCHiTiet*/
+.Frist-container {/*Khung chung ben trai chua toan bo phan tu*/
+    margin-left:12px;
+    margin-right:17px;
+    width:719px;
+    min-height:1000px;
+}
+.box_image {
+     width:140px;
+     background-color:darkblue;
+     height:145px;
+     float:left;
+}
+.Image {
+    max-width:180px;
+    max-height:185px;
+    margin-left:14px;
+    float:left;
+}
+.box-info-left {
+  float:left;
+  font-family:sans-serif,Arial;
+  font-size:13px;
+  font-weight:bold;
+  margin-left:30px;
+  margin-top:10px;
+  text-align:right;
+}
+.box-info-right {
+  float:left;
+  font-family:sans-serif,Arial;
+  font-size:13px;
+  margin-left:5px;
+  margin-top:10px;
+  text-align:left;
+}
+.text-throught {
+   text-decoration:line-through;
+}
+
+/*CSS for tab---------------------------------------*/
+.div1 {
+        font-family:sans-serif,Arial;
+		padding:10px;
+		width:700px;
+		background:#f7eec5;
+        border-top:3px solid #b7b73f;
+        -moz-border-radius-bottomleft:3px;
+        -webkit-border-bottom-left-radius:3px;
+        -moz-border-radius-bottomright:3px;
+        -webkit-border-bottom-right-radius:3px;
+        -moz-border-radius-topright:3px;
+        -webkit-border-top-right-radius:3px;
+	}
+    .div1 li {
+        list-style-type:none; 
+        margin-left:3%;    
+    }
+    .tabs {
+        padding:0px;
+        font-family:sans-serif,Arial;
+    }
+	.tabs li {
+		list-style:none;
+		display:inline;          
+	}
+	.tabs a {
+        border:none;
+		padding:10px 15px;
+		display:inline-block;
+		background:#535353;
+		color:#fff;
+		text-decoration:none;
+        -moz-border-radius-topleft:3px;
+        -webkit-border-top-left-radius:3px;
+        -moz-border-radius-topright:3px;
+        -webkit-border-top-right-radius:3px;
+	}
+    .tabs a:hover {
+		background-color:#667876;
+        -webkit-transition-duration:0.3s;
+        -moz-transition-duration:0.3s;
+	}
+	.tabs a.active {
+        border:none;
+		background:#b7b73f;
+		color:#000;
+	}
+/*--------------------------------------------------*/
+
+
+
+/*Item SanPham ------------------------------------------*/
+.a6-box {/*div chua khung 4 item*/
+        height: 360px;
+        margin-left:-46px;
+        margin-right:-40px;
+}
+.a6-box  li{
+    /*Khung chua hinh+ thong tin;*/
+    /*border:1px solid #c6c6c6;*/
+    float:left;
+    height:285px;
+    list-style-type:none;
+    width:162px;
+    padding:0px;
+    margin:10px 8px 63px 10px;    
+    text-align:center;
+}
+.a6-box .ImageLarge img {
+    padding:20px;
+    border:1px solid #c6c6c6;
+    height:125px;
+    margin-top:10px;
+    width:120px;
+}
+.a6-box a:hover {
+    color:#d02122;
+}
+a, a:visited {
+color: #2d3536;
+text-decoration: none;
+border:none;
+}
+p {
+display: block;
+-webkit-margin-before: 1em;
+-webkit-margin-after: 1em;
+-webkit-margin-start: 0px;
+-webkit-margin-end: 0px;
+}
+.a6-box p {
+font-family: sans-serif,Arial;
+font-size: 12px;
+
+}
+.box-left-contain-all-sp {/*khung chua tat ca cac item ben phia trai*/
+
+clear: left;
+min-height: 100px;
+margin: 0px 15px;
+width: 720px;
+height:auto;
+}
+    .box-left-contain-all-sp hr {
+    display: block; height: 1px;
+    border: 0; border-top: 1px solid #c6c6c6;
+    margin: 0; padding: 0; 
+    }
+.box-left-contain-all-sp-fontt {
+    margin: 0px;
+    color: #d02122;
+    font-family: sans-serif,Arial;
+    font-weight: bold;
+    font-size:14px;
+}
+/*------------------------------------------------------------------------*/
+
+/*CSS danh cho tab 2: y kien khach hang*/
+.tab2 {/*css chung cho toàn bộ các item trong div*/
+    width:600px;
+    height:150px;
+    background-color:white;
+    border:1px solid #4b2d22;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    word-wrap:hyphenate;
+    overflow-y:scroll;
+}
+.tab2 img {/*css cho image*/ 
+    width:50px;
+    height:50px;
+    padding:5px;
+    float:left;
+}
+.tab2 ul{/*css cho the ul, ko hien ra cac bullet*/
+    list-style:none;
+    padding:5px;
+    margin:0px;
+}
+.hrTab2{/*css cho tag hr, chinh lai do rong cua the hr*/
+    margin-right:20px;
+    clear:left;
+}
+.hotenKH {/*css cho phan ho ten khach hang*/
+    color:#0d35a4;
+    font-weight:bold;
+    font-size:13px;
+    margin:0px 0px 5px 0px;
+}
+.ThoiGianPostBai {/*css cho phan ngay gui bai cua khach hang*/
+    color:#0d35a4;
+}
+
+.NoidungDiv {/*css cho phan noi dung y kien khach hang*/
+    margin-right:20px;
+    text-align:justify;
+}

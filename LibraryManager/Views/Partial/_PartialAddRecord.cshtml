@@ -13,7 +13,7 @@
         height:25px;
     }
 </style>
-@*@using(Ajax.BeginForm(
+@using(Ajax.BeginForm(
                  "SaveCategory", "Manager", // <-- Action Method Name
                  new AjaxOptions
                  {
@@ -27,23 +27,17 @@
     <span>
         <input type="submit" value="Save"/>
     </span>
-    <span><button id="loginBtn">save 2</button></span>
 </div>
-}*@
-
-<div id="partialDiv"> 
-    <span>@Html.TextBoxFor(model => model.CategoriesName, new { id="txt"})</span>
-    
-</div>
-<span>
-        @Ajax.ActionLink("Save",
-                 "SaveCategory", "Manager", new {CategoriesName="txt" }, // <-- Action Method Name
+}
+@Ajax.ActionLink("234",
+                 "SaveCategory", "Manager", // <-- Action Method Name
                  new AjaxOptions
                  {
                      UpdateTargetId = "MainContent", // <-- DOM element ID to update
                      InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
                      HttpMethod = "Post" // <-- HTTP method
-                 },null)</span>
+                 }))
+
 @section scripts{
 @*    <script>
     $('#loginBtn').click(function() {

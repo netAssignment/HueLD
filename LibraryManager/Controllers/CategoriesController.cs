@@ -46,5 +46,44 @@ namespace LibraryManager.Controllers
            
         }
 
+        //Load category tu database len website
+        public ActionResult _LoadCategoryPartial()
+        {
+            var categories=db.Categories.Where(p=>p.IsDelete==false).ToList();
+            return PartialView(categories);
+        }
+
+        //Action nay se chiu trach nhiem ung voi link category nao thi se lay ra nhung
+        //cuon sach thuoc category do
+        public ActionResult CategoryLink(int? id)
+        {
+            if (id.HasValue)
+            {
+                ViewBag.TitleCategories = db.Categories.FirstOrDefault(p => p.CategoriesId == id).CategoriesName;
+                if (id == 1)
+                {
+                    return View(db.Books.Where(p => p.IsDelete == false).OrderByDescending(date => date.DateUpdate).ToList());
+                }
+
+                return View(db.Books.Where(p => p.IsDelete == false).Where(p => p.CategoriesId == id).ToList());
+            }
+            return View();
+        }
+
+        public string GetAuthorByBookID(int bookID)
+        {
+            var kk = (from p in db.TakePartIns
+                     from q in db.Authors
+                     where p.AuthorId == q.AuthorId && p.BookId == bookID
+                     select new { q.AuthorName }).ToList();
+            System.Text.StringBuilder str =new System.Text.StringBuilder();
+            foreach (var item in kk)
+            {
+                str.Append(item.AuthorName.ToString());
+                str.Append(", ");
+            }
+            if(str.Length>2)str.Remove(str.Length - 2, 2);
+            return str.ToString();
+        }
     }
 }

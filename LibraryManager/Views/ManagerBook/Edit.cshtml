@@ -1,0 +1,103 @@
+﻿@model LibraryManager.Models.Book
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_MyLayout1.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Book</legend>
+
+        @Html.HiddenFor(model => model.BookId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.BookName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.BookName)
+            @Html.ValidationMessageFor(model => model.BookName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Price)
+            @Html.ValidationMessageFor(model => model.Price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CategoriesId, "Categories")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("CategoriesId", String.Empty)
+            @Html.ValidationMessageFor(model => model.CategoriesId)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Decription)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Decription)
+            @Html.ValidationMessageFor(model => model.Decription)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DateUpdate)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.DateUpdate)
+            @Html.ValidationMessageFor(model => model.DateUpdate)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PageNumber)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PageNumber)
+            @Html.ValidationMessageFor(model => model.PageNumber)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PictureName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PictureName)
+            @Html.ValidationMessageFor(model => model.PictureName)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumberOfViews)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumberOfViews)
+            @Html.ValidationMessageFor(model => model.NumberOfViews)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IsDelete)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.IsDelete)
+            @Html.ValidationMessageFor(model => model.IsDelete)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

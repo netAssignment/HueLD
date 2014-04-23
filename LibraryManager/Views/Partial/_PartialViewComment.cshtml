@@ -1,0 +1,58 @@
+﻿
+﻿@using CaptchaMvc.HtmlHelpers
+@using LibraryManager.ViewModel
+@using System.Text
+@model LibraryManager.ViewModel.Model
+
+<h1 style="color: green">@TempData["Message"]</h1>
+<div class="editor-label">
+     @{
+        StringBuilder str = new StringBuilder();
+        if (Model != null)
+        {
+            str.Append("<ul>");
+            foreach (var m in Model.ListComment as List<Model>)
+            {
+                str.Append("<li>");
+                str.Append("<img alt='' src='/Images/UserImage/anonymousUser.png'/>");
+                str.Append("<p class='hotenKH'>" + @m.FullName + "<span class='alignR'></span></p>");
+                str.Append("<div class='NoidungDiv'>" + @m.Content + "</div>");
+                str.Append("<div class='ThoiGianPostBai'>Post time: " + DateTime.Now.ToString() + "</div>");
+                str.Append("<hr class='hrTab2'/>");
+                str.Append("</li>");
+            }
+            str.Append("</ul>");
+        }
+      }
+    
+     <fieldset>
+         <legend>Reader's Comment</legend>
+         <div class="tab2">
+                @Html.Raw(str.ToString())
+         </div>
+     </fieldset>
+</div>
+
+@*<div class="editor-label">
+    @Html.Label(model => model.Comment)
+</div>*@
+@Html.HiddenFor(model => model.bookID)
+<div class="editor-label">
+    @Html.LabelFor(model => model.Content, new { style = "padding-top:10px;" })
+</div>
+<div class="editor-label" >
+    @Html.TextAreaFor(model => model.Content, new { @style="width:400px;height:100px;" })
+     @Html.ValidationMessageFor(model => model.Content, "", new { @style = "color:red;" })
+</div>
+<div class="editor-label">
+    @Html.LabelFor(model => model.FullName)
+</div>
+<div class="editor-field">
+    @Html.TextBoxFor(model => model.FullName, new { @style="width:400px;" })
+    @Html.ValidationMessageFor(model => model.FullName, "", new { @style = "color:red;" })
+</div>
+<div>
+     @Html.Captcha(4)
+</div>
+<div style="color:red">@TempData["ErrorMessage"]</div>
+<div> @Html.ValidationSummary(true)</div>

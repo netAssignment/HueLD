@@ -55,40 +55,31 @@
         <div id="bannerDiv"></div>
         <div id="menuDiv">
             <ul>
-                <li>@Html.ActionLink("Home","Index","Home")</li>
-                <li>@Html.ActionLink("About","About","Home")</li>
+                <li>@Html.ActionLink("Home","Index","MyHome")</li>
+                <li>@Html.ActionLink("About","About","MyHome")</li>
                 <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
                     @Html.AntiForgeryToken()
                     <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>}
                 </li>
-                <li>@Html.ActionLink("Manage Categories","Categories","Manager")</li>
-                <li>@Html.ActionLink("Manage Books","Book","Manager")</li>
+                <li>@Html.ActionLink("Manage Categories","Index","ManagerCatelogy")</li>
+                <li>@Html.ActionLink("Manage Books","Index","ManagerBook")</li>
                 <li>@Html.ActionLink("Manage Account","Account","Manager")</li>
             </ul>
         </div>
         <div id="mainContainDiv">
             <div id="colLeftDiv">
                 <div class="boxLeftDiv" id="myDiv">
-                   Bạn đã login thành công
+                   You login Success
                 </div>
                 <div class="boxLeftDiv">
                     <div class="titleBoxDiv">Categories</div>
                     <div id="categoryList">
-                        <ul>
-                            <li>@Html.ActionLink("All","Index","Home")</li>
-                            <li>@Html.ActionLink("Children books","ChildrenBooks","Categories")</li>
-                            <li>@Html.ActionLink("Business books books","BusinessBooks","Categories")</li>
-                            <li>@Html.ActionLink("Literature books","LiteratureBooks","Categories")</li>
-                            <li>@Html.ActionLink("Music books","MusicBooks","Categories")</li>
-                            <li>@Html.ActionLink("Technology books","TechnologyBooks","Categories")</li>
-                            @*<li>@Html.ActionLink("Old Macdonald Had a Zoo","OldMacdonaldHadZoo","DetailPage")</li>
-                            <li>@Html.ActionLink("The Gruffalo in Scots","Gruffalo","DetailPage")</li>*@
-                        </ul>
+                        @{Html.RenderAction("_LoadCategoryPartial", "Categories");}
                     </div>               
                 </div>
             </div>
             <div id="colRightDiv">
-                <div class="boxLeftDiv boxRightDiv">
+                <div class="boxLeftDiv boxRightDiv" style="overflow-x:auto">
                   @RenderBody()
                     <div id="pageContent"></div>
                 </div>

@@ -1,48 +1,24 @@
-﻿@{
+﻿@using LibraryManager.Models
+@model List<Book>
+
+@{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MyLayout.cshtml";
 }
 
 <div class="titleCategorySelected">
-    All books
+@ViewBag.TitleCategories
 </div>
+@foreach(var item in Model)
+{
 <div class="bookItemBox">
-    <p>@Html.ActionLink("The Gruffalo in Scots", "Gruffalo", "DetailPage",null, new { @class = "bookTitle" })</p>
+    <p>@Html.ActionLink(item.BookName, "LoadDetailPage", "DetailPage", new {bookId=item.BookId }, new { @class = "bookTitle" })</p>
     <p class="bookContent">
-        We don't think there's anyone, anywhere in the book-loving world who hasn't heard of the Gruffalo. 
-        Julia Donaldson's lovable and unforgettable creation has enchanted little ones
-        for over a decade and now young Scottish readers can enjoy this very special edition 
-        of Julia's tale starring the much-adored Gruffalo, now told in flowing Scots!
-        The original story's illustrations by  Axel Scheffler help make this
-        the perfect keepsake for any proud Scot!
+       @item.Decription
     </p>
-    <div class="alignRight"><span>Author:</span> Julia Donaldson</div>
-    <div class="alignRight"><span>Date publish:</span> 26/03/2014</div>
+    <div class="alignRight">
+        @Html.Action("GetAuthorByBookID","Categories", new { bookID = item.BookId })                                      
+    </div>
+    <div class="alignRight"><span>Date publish:</span> @item.DateUpdate</div>
 </div>
-<div class="bookItemBox">
-    <p>@Html.ActionLink("Old Macdonald Had a Zoo","OldMacdonaldHadZoo","DetailPage",null,new { @class = "bookTitle" })</p>
-    <p class="bookContent">
-        After winning the lottery, Old MacDonald decides to sell up his farm and buy a zoo 
-        with his winnings - but what will the old farm animals make of this? 
-        With liftable flaps adding extra interaction to this brilliant twist on 
-        a well-known tale, the book hilariously reveals how the zoo animals 
-        picked off the farm animals one by one. From the talented mind of 
-        Curtis Jobling and the amazing illustrator Tom McLaughlin, this is 
-        a laugh-out-loud book for child and parent.
-    </p>
-    <div class="alignRight"><span>Author:</span> Julia Donaldson</div>
-    <div class="alignRight"><span>Date publish:</span> 26/03/2014</div>
-</div>
-<div class="bookItemBox">
-    <p>@Html.ActionLink("Books Signed by Musicians","BooksSignedByMusicians","DetailPage",null,new { @class = "bookTitle" })</p>
-    <p class="bookContent">
-        Music is the soundtrack to our memories and one of life’s great pleasures.
-        And the people who write, sing and play live a rollercoaster existence 
-        in the glare of the public eye. These stars suffer heartbreak and heartache,
-        personal tragedies, drug and alcohol addiction, in-fighting and real fighting,
-        financial woes despite earning a fortune, and the odd loneliness of life on the road.
-        These books are fascinating reads and signed too.
-    </p>
-    <div class="alignRight"><span>Author:</span> Beth Carswell </div>
-    <div class="alignRight"><span>Date publish:</span> 26/03/2010</div>
-</div>
+}

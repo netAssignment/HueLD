@@ -39,6 +39,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CaptchaMvc, Version=2.5.0.0, Culture=neutral, PublicKeyToken=fe46ad421dd3b0e6, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\CaptchaMvc.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -121,9 +125,6 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
-    <Reference Include="Trirand.Web.Mvc">
-      <HintPath>ImportDLL\Trirand.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
@@ -196,6 +197,8 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\DetailPageController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManagerBookController.cs" />
+    <Compile Include="Controllers\ManagerCatelogyController.cs" />
     <Compile Include="Controllers\ManagerController.cs" />
     <Compile Include="Controllers\MyHomeController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -204,37 +207,25 @@
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\BookCodeFirst.cs" />
+    <Compile Include="MyClass\JsonReadWrite.cs" />
+    <Compile Include="MyClass\RandomKey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Model.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\aspnet-LibraryManager-20140415120534.mdf" />
     <Content Include="App_Data\aspnet-LibraryManager-20140415120534_log.ldf">
       <DependentUpon>aspnet-LibraryManager-20140415120534.mdf</DependentUpon>
     </Content>
+    <Content Include="bin\CaptchaMvc.dll" />
     <Content Include="Content\demo.css" />
     <Content Include="Content\HomeStyle.css" />
     <Content Include="Content\Jquerry-grid\ui.jqgrid.css" />
-    <Content Include="Content\jquerry-ui\images\animated-overlay.gif" />
-    <Content Include="Content\jquerry-ui\images\ui-bg_flat_0_aaaaaa_40x100.png" />
-    <Content Include="Content\jquerry-ui\images\ui-bg_flat_55_fbec88_40x100.png" />
-    <Content Include="Content\jquerry-ui\images\ui-bg_glass_75_d0e5f5_1x400.png" />
-    <Content Include="Content\jquerry-ui\images\ui-bg_glass_85_dfeffc_1x400.png" />
-    <Content Include="Content\jquerry-ui\images\ui-bg_glass_95_fef1ec_1x400.png" />
-    <Content Include="Content\jquerry-ui\images\ui-bg_gloss-wave_55_5c9ccc_500x100.png" />
-    <Content Include="Content\jquerry-ui\images\ui-bg_inset-hard_100_f5f8f9_1x100.png" />
-    <Content Include="Content\jquerry-ui\images\ui-bg_inset-hard_100_fcfdfd_1x100.png" />
-    <Content Include="Content\jquerry-ui\images\ui-icons_217bc0_256x240.png" />
-    <Content Include="Content\jquerry-ui\images\ui-icons_2e83ff_256x240.png" />
-    <Content Include="Content\jquerry-ui\images\ui-icons_469bdd_256x240.png" />
-    <Content Include="Content\jquerry-ui\images\ui-icons_6da8d5_256x240.png" />
-    <Content Include="Content\jquerry-ui\images\ui-icons_cd0a0a_256x240.png" />
-    <Content Include="Content\jquerry-ui\images\ui-icons_d8e7f3_256x240.png" />
-    <Content Include="Content\jquerry-ui\images\ui-icons_f9bd01_256x240.png" />
-    <Content Include="Content\jquerry-ui\jquery-ui-1.10.4.custom.css" />
-    <Content Include="Content\jquerry-ui\jquery-ui-1.10.4.custom.js" />
-    <Content Include="Content\jquerry-ui\jquery-ui-1.10.4.custom.min.css" />
-    <Content Include="Content\jquerry-ui\jquery-ui-1.10.4.custom.min.js" />
     <Content Include="Content\ManagerStyle.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\TabStyle\responsive-tabs.css" />
+    <Content Include="Content\TabStyle\SanPhamStyle.css" />
+    <Content Include="Content\TabStyle\style.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -300,7 +291,12 @@
     <Content Include="Images\kitten.jpg" />
     <Content Include="Images\OLM2.jpg" />
     <Content Include="Images\top_bg.gif" />
+    <Content Include="Images\UserImage\anonymousUser.png" />
     <Content Include="Scripts\ajaxLoadPage.js" />
+    <Content Include="Scripts\JquerryTab\jquery-1.11.0.min.js" />
+    <Content Include="Scripts\JquerryTab\jquery-2.1.0.min.js" />
+    <Content Include="Scripts\JquerryTab\jquery.responsiveTabs.js" />
+    <Content Include="Scripts\JquerryTab\jquery.responsiveTabs.min.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -324,7 +320,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\bullet.png" />
@@ -379,6 +374,20 @@
     <Content Include="Views\Home\image.cshtml" />
     <Content Include="Views\Ajax\MyTest.cshtml" />
     <Content Include="Views\Partial\_SaveCategories.cshtml" />
+    <Content Include="Views\ManagerCatelogy\Index.cshtml" />
+    <Content Include="Views\ManagerCatelogy\Details.cshtml" />
+    <Content Include="Views\ManagerCatelogy\Create.cshtml" />
+    <Content Include="Views\ManagerCatelogy\Edit.cshtml" />
+    <Content Include="Views\ManagerCatelogy\Delete.cshtml" />
+    <Content Include="Views\ManagerBook\Index.cshtml" />
+    <Content Include="Views\ManagerBook\Details.cshtml" />
+    <Content Include="Views\ManagerBook\Create.cshtml" />
+    <Content Include="Views\ManagerBook\Edit.cshtml" />
+    <Content Include="Views\ManagerBook\Delete.cshtml" />
+    <Content Include="Views\Categories\_LoadCategoryPartial.cshtml" />
+    <Content Include="Views\Categories\CategoryLink.cshtml" />
+    <Content Include="Views\DetailPage\LoadDetailPage.cshtml" />
+    <Content Include="Views\Partial\_PartialViewComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

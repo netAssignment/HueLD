@@ -1,0 +1,14 @@
+﻿@using LibraryManager.Models
+@model List<Category>
+
+<div class="boxLeftDiv">
+    <div class="titleBoxDiv">Categories</div>
+    <div id="categoryList">
+        <ul>
+            @foreach (var item in Model)
+            {
+                <li>@Html.ActionLink(item.CategoriesName, "Index", "MyHome")</li>               
+            }
+        </ul>
+    </div>
+</div>

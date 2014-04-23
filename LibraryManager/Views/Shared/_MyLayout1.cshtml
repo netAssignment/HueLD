@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/jquery-1.8.2.min.js"></script>
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
+    <link href="~/Content/HomeStyle.css" rel="stylesheet" />
+    <script src="~/Scripts/ajaxLoadPage.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#submit').click(function () {
+                var username = $('#user').val();
+                var password = $('#pass').val();
+
+                if (username == "") {
+                    $('#dis').slideDown().html("<span>Please type Username</span>");
+                    return false;
+                }
+                if (password == "") {
+                    $('#dis').slideDown().html('<span id="error">Please type Password</span>');
+                    return false;
+                }
+                if (username.length < 6) {
+                    $('#dis').slideDown().html("<span>User name must greater than 6 characters</span>");
+                    return false;
+                }
+                if (password.length < 6) {
+                    $('#dis').slideDown().html("<span>Password must greater than 6 characters</span>");
+                    return false;
+                }
+            });
+        });
+        function loadXMLDoc() {
+            var xmlhttp;
+            if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp = new XMLHttpRequest();
+            }
+            else {// code for IE6, IE5
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    document.getElementById("myDiv").innerHTML = "asdfasdt";
+                }
+            }
+            xmlhttp.open("GET", "ajax_info.txt", true);
+            xmlhttp.send();
+        }
+</script>
+</head>
+<body>
+    <div id="bodyDiv">
+        <div id="bannerDiv"></div>
+        <div id="menuDiv">
+            <ul>
+                <li>@Html.ActionLink("Home","Index","Home")</li>
+                <li>@Html.ActionLink("About","About","Home")</li>
+                <li>@using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+                    @Html.AntiForgeryToken()
+                    <a href="javascript:document.getElementById('logoutForm').submit()">Log off</a>}
+                </li>
+                <li>@Html.ActionLink("Manage Categories","Categories","Manager")</li>
+                <li>@Html.ActionLink("Manage Books","Book","Manager")</li>
+                <li>@Html.ActionLink("Manage Account","Account","Manager")</li>
+            </ul>
+        </div>
+        <div id="mainContainDiv">
+            <div id="colLeftDiv">
+                <div class="boxLeftDiv" id="myDiv">
+                   Bạn đã login thành công
+                </div>
+                <div class="boxLeftDiv">
+                    <div class="titleBoxDiv">Categories</div>
+                    <div id="categoryList">
+                        <ul>
+                            <li>@Html.ActionLink("All","Index","Home")</li>
+                            <li>@Html.ActionLink("Children books","ChildrenBooks","Categories")</li>
+                            <li>@Html.ActionLink("Business books books","BusinessBooks","Categories")</li>
+                            <li>@Html.ActionLink("Literature books","LiteratureBooks","Categories")</li>
+                            <li>@Html.ActionLink("Music books","MusicBooks","Categories")</li>
+                            <li>@Html.ActionLink("Technology books","TechnologyBooks","Categories")</li>
+                            @*<li>@Html.ActionLink("Old Macdonald Had a Zoo","OldMacdonaldHadZoo","DetailPage")</li>
+                            <li>@Html.ActionLink("The Gruffalo in Scots","Gruffalo","DetailPage")</li>*@
+                        </ul>
+                    </div>               
+                </div>
+            </div>
+            <div id="colRightDiv">
+                <div class="boxLeftDiv boxRightDiv">
+                  @RenderBody()
+                    <div id="pageContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+          <hr />
+            <div id="itemFooter">Designer:  Luân Đức Huê<br />
+            Source:  <a href="https://bookmanager.com/tbm/" 
+                        target="_blank">https://bookmanager.com/tbm/</a>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
+

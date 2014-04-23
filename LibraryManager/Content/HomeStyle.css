@@ -1,0 +1,249 @@
+﻿body {
+    font-family: Arial,sans-serif;
+}
+
+#bodyDiv {
+    width: 1000px;
+    margin: auto;
+}
+
+#bannerDiv {
+    background-image: url("/Images/BannerBook.png");
+    background-repeat: no-repeat;
+    margin: auto;
+    width: 1000px;
+    min-height: 77px;
+}
+
+.loginForm {
+    width: 100px;
+    height: 30px;
+    border: solid 1px #467682;
+    padding: 10px;
+}
+
+/*-----Menu horizontal------*/
+#menuDiv {
+    width: 1000px;
+    background-color: #4b2d22;
+    float: left;
+}
+
+    #menuDiv ul {
+        list-style: none;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    #menuDiv li {
+        padding: 5px 10px;
+        float: left;
+    }
+
+    #menuDiv a {
+        text-decoration: none;
+        color: #FFF;
+    }
+/*------------------------------------*/
+
+/*Footer--------------------------------*/
+#footter {
+    clear: both;
+    border-top: 1px solid #808080;
+}
+
+#itemFooter {
+    color: #8e8e8e;
+    min-height: 100px;
+}
+
+    #itemFooter a {
+        text-decoration: none;
+        color: #7f96a1;
+    }
+
+        #itemFooter a:hover {
+            text-decoration: underline;
+            color: #467481;
+        }
+/*------------------------------------*/
+#mainContainDiv {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#colLeftDiv {
+    width: 30%;
+    min-height: 300px;
+    float: left;
+}
+
+#colRightDiv {
+    width: 69%;
+    min-height: 300px;
+    float: right;
+    margin-right: 2px;
+    z-index: 12;
+}
+
+.boxLeftDiv {
+    width: 98%;
+    border: 1px solid #4b2d22;
+    border-radius: 10px 10px;
+    margin: 5px auto;
+    -moz-box-shadow: 0 3px 5px #888;
+    -webkit-box-shadow: 0 3px 5px#888;
+    box-shadow: 0 3px 5px #888;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+    .boxLeftDiv input[type="text"], input[type="password"] {
+        width: 95%;
+        height: 30px;
+        font-size: 15px;
+        color: #2f2e2d;
+        margin: 5px auto;
+    }
+
+    .boxLeftDiv input[type="submit"] {
+        -webkit-box-shadow: rgba(0,0,0,0.2) 0 1px 0 0;
+        -moz-box-shadow: rgba(0,0,0,0.2) 0 1px 0 0;
+        box-shadow: rgba(0,0,0,0.2) 0 1px 0 0;
+        color: #FFF;
+        background-color: #4b2d22;
+        border-radius: 5px;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border: none;
+        font-family: Arial,sans-serif;
+        font-size: 16px;
+        height: 32px;
+        padding: 4px 16px;
+        text-shadow: #FE6 0 1px 0;
+        margin: 5px;
+    }
+
+    .boxLeftDiv li {
+        list-style: none;
+        margin: auto;
+    }
+    .boxLeftDiv ol {
+   padding:0px;
+}
+.boxLogin {
+     width: 58%;
+    margin: 5px auto;
+    -moz-box-shadow: 0 3px 5px #888;
+    -webkit-box-shadow: 0 3px 5px#888;
+    box-shadow: 0 3px 5px #888;
+    text-align: center;
+    padding-bottom: 10px;
+}
+.boxLogin li {
+    list-style:none;
+    margin:auto;
+}
+.boxLogin ol {
+   padding:0px;
+}
+.boxLogin h1 {
+   padding-left:6px;
+}
+.myHyperlink {
+    text-decoration: none;
+    color: #467483;
+}
+
+.myHyperlink:hover {
+    color: #4b2d22;
+}
+.titleBoxDiv {
+    text-transform: uppercase;
+    background-color: #4b2d22;
+    color: #FFF;
+    text-align: center;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+/*Right Column-------------------*/
+.boxRightDiv {
+    width: 100%;
+}
+
+#categoryList ul {
+    list-style: none;
+    padding: 0;
+    margin: 5px 10px;
+    text-align: left;
+}
+
+#categoryList li {
+    margin: 1px auto;
+}
+
+#categoryList a {
+    text-decoration: none;
+    color: #467483;
+}
+
+    #categoryList a:hover {
+        color: #4b2d22;
+    }
+
+.titleCategorySelected {
+    color: #457583;
+    font-size: 30px;
+    text-align: left;
+    padding:5px 30px 0px 30px;
+
+}
+
+.bookItemBox {
+    width: 92%;
+    text-align: justify;
+    margin: 10px auto;
+    padding: 15px;
+    overflow:auto;
+}
+
+    .bookItemPicture {
+        float:left;
+        width: 40%;
+        margin-bottom:10px;
+        margin-right:10px;
+    }
+
+.bookTitle {
+    text-decoration: none;
+    color: #4b2d22;
+    font-size: 25px;
+    text-align: left;
+}
+
+.bookContent {
+    padding: 5px;
+}
+
+.alignRight {
+    text-align: right;
+}
+
+    .alignRight span {
+        font-weight: bold;
+    }
+/*-----------------------------*/
+#dis {
+    text-align: center;
+    height: 35px;
+    width: 250px;
+    color: #F00;
+}
+.aliceblueBGColor {
+    background-color: aliceblue;
+}
+.alignDetail {
+    margin:0px;
+}

@@ -1,0 +1,53 @@
+﻿table {
+    width: 97%;
+    margin: 10px 10px;
+}
+
+    table th {
+        background-color: #725449;
+        color: #FFF;
+    }
+
+    table td {
+        margin: 0px;
+    }
+
+.Table {
+    display: table;
+    padding:10px;
+}
+
+.Title {
+    display: table-caption;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.Heading {
+    display: table-row;
+    font-weight: bold;
+    text-align: center;
+    background-color: #725449;
+    color: #FFF;
+    
+}
+
+.Row {
+    display: table-row;
+}
+
+.Cell {
+    display: table-cell;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+    border:1px solid #FFF;
+}
+.CellHeader {
+    display: table-cell;
+    border-width: thin;
+    padding-left: 5px;
+    padding-right: 5px;
+    border:1px solid #FFF;
+}

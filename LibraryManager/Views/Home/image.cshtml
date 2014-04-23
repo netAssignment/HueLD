@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "image";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+@using (Html.BeginForm("imagePost", "Home", FormMethod.Post, new { EncType = "multipart/form-data" }))
+{
+    <table>
+    <tr>
+        <td>Upload Excel File: </td>
+        <td><input type="text" name="NAMEtxtFileName"/></td>
+        <td><input type="file" id="IDbtnUpload" name="NAMEbtnUpload"/></td>
+
+    </tr>
+    <tr>
+        <td>Company Name: </td>
+        <td><input type="text" /></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td align="right"><input type="submit" value="Process" /></td>
+        <td></td>
+    </tr>
+ </table>
+}

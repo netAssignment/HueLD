@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "MusicBooks";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<div class="titleCategorySelected">
+    Music books
+</div>
+<div class="bookItemBox">
+    <p>@Html.ActionLink("Books Signed by Musicians","BooksSignedByMusicians","DetailPage",null,new { @class = "bookTitle" })</p>
+    <p class="bookContent">
+        Music is the soundtrack to our memories and one of life’s great pleasures.
+        And the people who write, sing and play live a rollercoaster existence 
+        in the glare of the public eye. These stars suffer heartbreak and heartache,
+        personal tragedies, drug and alcohol addiction, in-fighting and real fighting,
+        financial woes despite earning a fortune, and the odd loneliness of life on the road.
+        These books are fascinating reads and signed too.
+    </p>
+    <div class="alignRight"><span>Author:</span> Beth Carswell </div>
+    <div class="alignRight"><span>Date publish:</span> 26/03/2010</div>
+</div>

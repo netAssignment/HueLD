@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/HomeStyle.css")
+    
+</head>
+<body>
+    <div id="bodyDiv">
+        <div id="bannerDiv"></div>
+        <div id="menuDiv">
+            <ul>
+                <li>@Html.ActionLink("Home", "Index", "MyHome")</li>
+                <li>@Html.ActionLink("About", "About", "MyHome")</li>
+            </ul>
+            <div style="float:right;color:white;">@Html.Partial("~/Views/Shared/_LoginPartial.cshtml")</div>
+        </div>
+        <div id="mainContainDiv">
+            <div id="colLeftDiv">
+                @*<div class="boxLeftDiv" id="myDiv">
+                    
+                    @using (Html.BeginForm("Login", "Account", new { }, FormMethod.Post))
+                    {
+                    <label id="dis"></label><br>
+                    <div><input type="text" placeholder="UserName" id="user"/></div>
+                    <div><input type="password" placeholder="Password" id="pass"/></div>
+                    <div><input type="submit" value="Submit" id="submit"/></div>
+                    }
+                   @{Html.RenderPartial("~/Views/Shared/_LoginPartial.cshtml");}
+
+                </div>
+                @{Html.RenderAction("Login", "Account", routeValues: null);}*@
+                <div class="boxLeftDiv">
+                    <div class="titleBoxDiv">Categories</div>
+                    <div id="categoryList">
+                        <ul>
+                            <li>@Html.ActionLink("All","Index","MyHome")</li>
+                            <li>@Html.ActionLink("Children books","ChildrenBooks","Categories")</li>
+                            <li>@Html.ActionLink("Business books books","BusinessBooks","Categories")</li>
+                            <li>@Html.ActionLink("Literature books","LiteratureBooks","Categories")</li>
+                            <li>@Html.ActionLink("Music books","MusicBooks","Categories")</li>
+                            <li>@Html.ActionLink("Technology books","TechnologyBooks","Categories")</li>                           
+                        </ul>
+                    </div>               
+                </div>
+            </div>
+            <div id="colRightDiv">
+                <div class="boxLeftDiv boxRightDiv">
+                  @RenderBody()
+                    <div id="pageContent"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+          <hr />
+            <div id="itemFooter">Designer:  Luân Đức Huê<br />
+            Source:  <a href="https://bookmanager.com/tbm/" 
+                        target="_blank">https://bookmanager.com/tbm/</a>
+            </div>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    <script src="~/Scripts/ajaxLoadPage.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#submit').click(function () {
+                var username = $('#user').val();
+                var password = $('#pass').val();
+
+                if (username == "") {
+                    $('#dis').slideDown().html("<span>Please type Username</span>");
+                    return false;
+                }
+                if (password == "") {
+                    $('#dis').slideDown().html('<span id="error">Please type Password</span>');
+                    return false;
+                }
+                if (username.length < 6) {
+                    $('#dis').slideDown().html("<span>User name must greater than 6 characters</span>");
+                    return false;
+                }
+                if (password.length < 6) {
+                    $('#dis').slideDown().html("<span>Password must greater than 6 characters</span>");
+                    return false;
+                }
+            });
+        });
+
+</script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

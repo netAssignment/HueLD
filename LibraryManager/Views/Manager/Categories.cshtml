@@ -1,0 +1,69 @@
+﻿@using LibraryManager.Models
+@model List<Category>
+@{
+    ViewBag.Title = "Categories";
+    Layout = "~/Views/Shared/_MyLayout1.cshtml";
+}
+
+<link href="~/Content/ManagerStyle.css" rel="stylesheet" />
+
+ 
+@*<table>
+    <tr>
+        <th>Category</th>
+        <th>Amount Book</th>
+        <th>Review</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    <tr>
+        <td>Children Book</td>
+        <td>2</td>
+        <td><a href="#">Review</a></td>
+        <td><a href="#">Edit</a></td>
+        <td><a href="#">Delete</a></td>
+    </tr>         
+</table>*@
+<div id="MainContent">
+<div class="Table" id="myDivTable">
+     @Ajax.ActionLink("Create new category", // <-- Text to display
+                 "_PartialAddRecord", // <-- Action Method Name
+                 new AjaxOptions
+                 {
+                     UpdateTargetId = "CustomerList", // <-- DOM element ID to update
+                     InsertionMode = InsertionMode.Replace, // <-- Replace the content of DOM element
+                     HttpMethod = "GET" // <-- HTTP method
+                 })
+    <div class="Heading">
+        <div class="CellHeader">
+            Category Name
+        </div>
+        <div class="CellHeader">
+            Update
+        </div>
+        <div class="CellHeader">
+            Delete
+        </div>
+    </div>
+     @foreach (var item in Model)
+        {
+
+         <div class="Row">
+        <div class="Cell">
+             @Html.DisplayName(item.CategoriesName)
+        </div>
+        <div class="Cell">
+            <a href="#">Edit</a>
+        </div>
+        <div class="Cell">
+            <a href="#">Delete</a>
+        </div>
+    </div>
+        }
+    
+</div>
+<div id="CustomerList" style="overflow:auto;margin:3px 11px;"></div>
+    </div>
+@section Scripts {
+@Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js","~/Scripts/jquery.unobtrusive-ajax.js")
+}
